@@ -106,3 +106,4 @@ dist
 # Screenshots, videos
 *.png
 *.mp4
+.cypress/videos
