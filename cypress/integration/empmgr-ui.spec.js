@@ -44,26 +44,6 @@ describe("Testing Employee Manager v2...", () => {
         // Take a screenshot
         cy.screenshot("HSkjall")
     })
-    it("should show errors if name field is blank", () => {
-        // Click an employee to display info
-        cy.get('li').contains('Harald Skjall').click()
-        // Clear name input
-        cy.get('[name="nameEntry"]').clear()
-        // Click Save button
-        cy.get('#saveBtn').click()
-        // Assert that name input is underlined with a red line
-        cy.get('[name="nameEntry"]').should('have.css', 'border-bottom', '2px solid rgb(204, 0, 0)')
-        // Assert that errorCard element is visible
-        cy.get('div.errorCard').should('be.visible')
-        // Assert that error message has the correct text
-        cy.get('span.errorMessage').should('contain.text', 'The name field must be between 1 and 30 characters long.')
-    })
-    it("should hide errors and cancel unsaved edits if page refreshed", () => {
-        // Refresh the page
-        cy.reload()
-        // Assert that the errorCard element does not exist
-        cy.get('div.errorCard').should('not.exist')
-    })
     it("should be able to delete an employee", () => {
         // Click an employee to display info
         cy.get('li').contains('Harald Skjall').click()
